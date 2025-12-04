@@ -1,0 +1,64 @@
+.keypad-container {
+    width: fit-content;
+    margin: 30px auto;
+    padding: 20px;
+    background: #111;               
+    border: 3px solid #444;         
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  text-align: center;
+}
+
+#display {
+    width: 220px;
+    padding: 12px;
+    margin-bottom: 15px;
+
+    font-size: 20px;
+    text-align: center;
+
+    background: #fff;
+    border: 2px solid #666;
+    border-radius: 6px;
+}
+
+.keys button {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    font-weight: bold;
+
+    background: #e0e0e0;
+    border: 2px solid #888;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.keys button:hover {
+    background: #ffffff;
+    border-color: #aaa;
+}
+
+
+.keys button:active {
+    background: #ccc;
+    transform: scale(0.97);
+}
+body {
+    background-color: black;
+}
+img {
+    border: solid white 5px;
+    display: block;
+    margin: 0 auto;
+}
+.keys {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
