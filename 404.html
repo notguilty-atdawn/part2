@@ -22,17 +22,13 @@
       max-width: 500px;
     }
 
-    a, button {
+    a {
       color: #0aff0a;
       text-decoration: underline;
-      background: none;
-      border: none;
-      font-size: 16px;
       cursor: pointer;
-      font-family: "Courier New", monospace;
     }
 
-    a:hover, button:hover {
+    a:hover {
       text-shadow: 0 0 5px #0aff0a;
     }
 
@@ -47,17 +43,33 @@
     <p>This path doesn’t lead anywhere.</p>
     <p>Retrace your steps.</p>
 
-   
-    <button onclick="
-      if (document.referrer) {
-        history.back();
+    <!-- Perfect GitHub-Pages-safe Go Back -->
+    <a onclick="
+      let path = window.location.pathname;
+
+      // remove trailing slash if present
+      if (path.endsWith('/')) {
+        path = path.slice(0, -1);
+      }
+
+      // find parent directory
+      const parent = path.substring(0, path.lastIndexOf('/'));
+
+      // if at root, go to homepage
+      if (!parent) {
+        window.location.href = '/';
       } else {
-        window.location.href = './';
+        window.location.href = parent + '/';
       }
     ">
       Go back
-    </button>
+    </a>
 
   </div>
 </body>
 </html>
+
+
+   
+
+ 
