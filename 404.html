@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Got lost?</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0aff0a;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      border: 1px solid #0aff0a;
+      padding: 30px;
+      max-width: 500px;
+    }
+
+    a, button {
+      color: #0aff0a;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: "Courier New", monospace;
+    }
+
+    a:hover, button:hover {
+      text-shadow: 0 0 5px #0aff0a;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Got lost?</h1>
+    <p>This path doesn’t lead anywhere.</p>
+    <p>Retrace your steps.</p>
+
+   
+    <button onclick="
+      if (document.referrer) {
+        history.back();
+      } else {
+        window.location.href = '/';
+      }
+    ">
+      Go back
+    </button>
+
+  </div>
+</body>
+</html>
