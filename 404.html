@@ -1,75 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Got lost?</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #0aff0a;
-      font-family: "Courier New", monospace;
-      text-align: center;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haha you're lost</title>
 
-    .box {
-      border: 1px solid #0aff0a;
-      padding: 30px;
-      max-width: 500px;
-    }
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 80px;
+        }
 
-    a {
-      color: #0aff0a;
-      text-decoration: underline;
-      cursor: pointer;
-    }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
 
-    a:hover {
-      text-shadow: 0 0 5px #0aff0a;
-    }
+        p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
 
-    p {
-      margin: 10px 0;
-    }
-  </style>
+        .button {
+            background-color: #222;
+            border: 2px solid white;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background-color: #444;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="box">
+
     <h1>Got lost?</h1>
-    <p>This path doesn’t lead anywhere.</p>
-    <p>Retrace your steps.</p>
+    <p>This is not the way to go.</p>
 
-    <!-- Perfect GitHub-Pages-safe Go Back -->
-    <a onclick="
-      let path = window.location.pathname;
+    <button class="button" id="goBack">Go Back</button>
 
-      // remove trailing slash if present
-      if (path.endsWith('/')) {
-        path = path.slice(0, -1);
-      }
+    <script>
+        document.getElementById("goBack").addEventListener("click", () => {
+            const last = sessionStorage.getItem("lastLevel");
 
-      // find parent directory
-      const parent = path.substring(0, path.lastIndexOf('/'));
+            if (last) {
+                
+                window.location.href = last;
+            } else {
+               
+                window.location.href = "/index.html"; 
+            }
+        });
+    </script>
 
-      // if at root, go to homepage
-      if (!parent) {
-        window.location.href = '/';
-      } else {
-        window.location.href = parent + '/';
-      }
-    ">
-      Go back
-    </a>
-
-  </div>
 </body>
 </html>
 
-
-   
 
  
